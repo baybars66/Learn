@@ -1,0 +1,1 @@
+Componentler arası prop yollama Drilling
