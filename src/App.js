@@ -19,7 +19,7 @@ class App extends Component {
        {
         id : 2,
         name : "Suela",
-        salary : "5000",
+        //salary : "5000",
         dep : "Martaş"
  
         },

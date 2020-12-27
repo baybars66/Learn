@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
  class User extends Component {
 
   state = {
-        isvisible : true
+        isvisible : true,
+        digerstate :"iyi"
         }
 
 /*
@@ -22,7 +23,8 @@ import PropTypes from 'prop-types';
    tikla = (e) => {
     
       this.setState({
-      isvisible : ! this.state.isvisible
+      isvisible : ! this.state.isvisible,
+      digerstate :"kötü"
        });
     console.log(e.target);
     console.log("baybars");
@@ -31,6 +33,7 @@ import PropTypes from 'prop-types';
     render() {
         const {name, dep, salary} = this.props;
         const {isvisible} = this.state;
+        const {digerstate} = this.state;
 
         return (
             <div>
@@ -38,11 +41,10 @@ import PropTypes from 'prop-types';
             <input teyp="text" onClick = {this.tikla} /> 
             <button>Yolla</button>
            
-           
+            <p> İsim: {name} </p>
             {isvisible ?
            
            <ul>
-            <li> İsim: {name}   </li>
             
             <li>  Bölüm: {dep}  </li>
             <li> Maaş:  {salary} </li>
@@ -51,7 +53,10 @@ import PropTypes from 'prop-types';
 
 
            </ul>
-            : null
+            : //null
+
+            <p> İsim: {digerstate} </p>
+
             }
             </form>  
             </div>
