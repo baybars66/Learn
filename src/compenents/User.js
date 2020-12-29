@@ -1,10 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import PropTypes from 'prop-types';
+import Talep from './context';
+ 
 
- class User extends Component {
+class User extends Component {
 
   state = {
-        isvisible : true,
+        isvisible : false,
         digerstate :"iyi"
         }
 
@@ -24,43 +26,76 @@ import PropTypes from 'prop-types';
     
       this.setState({
       isvisible : ! this.state.isvisible,
-      digerstate :"kötü"
+     
        });
-    console.log(e.target);
-    console.log("baybars");
+   
    }
 
+   sil = (dispatch,e) => {
+    const {no}= this.props;
+   // console.log(no);
+    dispatch({type:"sil", payload:no});
+ 
+   }
+  componentWillUnmount(){
+ console.log('unmount oldu');
+
+  }
     render() {
-        const {name, dep, salary} = this.props;
-        const {isvisible} = this.state;
-        const {digerstate} = this.state;
-
+         const {name, dep, salary} = this.props;
+         const {isvisible} = this.state;
+         //const {digerstate} = this.state;
+        // console.log(this.props);
         return (
-            <div>
-            <form>
-            <input teyp="text" onClick = {this.tikla} /> 
-            <button>Yolla</button>
-           
-            <p> İsim: {name} </p>
-            {isvisible ?
-           
-           <ul>
-            
-            <li>  Bölüm: {dep}  </li>
-            <li> Maaş:  {salary} </li>
-            <li>  {this.state.Test} </li>
+            <Talep>
+            {
+                value => {
+                    const {dispatch} = value ;
+                   
+                    return (
+                        <div className = "col-md-8 mb-4" >
+                        <div className = "card" style= {isvisible ? {backgroundColor: "#62848d", color :"White" } : null }>
+                        <div className = "card-header d-flex justify-content-between">
+                        <h4 className = "d-inline" onClick = {this.tikla}> {name}</h4>
+                        <i className="far fa-trash-alt" style={{cursor: "pointer"}} onClick={this.sil.bind(this, dispatch)}></i>
+                        </div>
+                        {
+                            isvisible ? 
+                            <div className = "card-body">
+                        <p className = "card-text"> Maaş:{salary} </p>
+                        <p className = "card-text"> Dep :{dep} </p>
+
+                        </div>
+                        : null
+
+
+                        }
+                        
 
 
 
-           </ul>
-            : //null
 
-            <p> İsim: {digerstate} </p>
+                        </div>
+
+
+                        </div>
+
+
+
+                    )
+
+                }
+
+
 
             }
-            </form>  
-            </div>
+
+
+            </Talep>
+
+
         )
+       
     }
 }
 

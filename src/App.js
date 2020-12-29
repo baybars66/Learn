@@ -1,50 +1,24 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 import Navbar from './compenents/Navbar';
 import Users from './compenents/Users';
 import './App.css';
+import AddKul from './compenents/AddKul';
+import Test from './compenents/Test';
+import Dene from './compenents/Dene'
 
 class App extends Component {
   
-  state = {
-     appkul : [
-       {
-       id : 1,
-       name : "Baybars",
-       salary : "5000",
-       dep : "Eminönü"
-
-       },
-
-       {
-        id : 2,
-        name : "Suela",
-        //salary : "5000",
-        dep : "Martaş"
- 
-        },
-
-        {
-          id : 3,
-          name : "Yaser",
-          salary : "500",
-          dep : "Martaş"
-   
-          },
-
-
-
-
-
-     ]
-  }
+  
   render() {
     return (
-    <div className="App">
+    <div className="container">
+     <Test test= "deneme" />
+      <Dene />
     <Navbar title = 'BAYBİ'/>  
     <hr/>
-    
-    <Users kisiler = {this.state.appkul}/>
+    <AddKul />
+    <Users />
 
     <Navbar />  
     <hr/>
