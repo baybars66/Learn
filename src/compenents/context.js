@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import axios from 'axios';
 const Contextim = React.createContext();
 
 const reducer = (state, action) => {
@@ -64,7 +64,13 @@ export class Arz extends Component {
 
 
      }
-    
+     componentDidMount= async () =>{
+        const cevap = await axios.get("http://localhost:5005/kisiler");
+        console.log(cevap);
+     }
+
+
+
     render() {
         return (
             <Contextim.Provider value = {this.state}>

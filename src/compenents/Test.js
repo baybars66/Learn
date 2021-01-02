@@ -9,12 +9,12 @@ class Test extends Component {
         a: 10
 
      };
-     console.log("contruction");
-     console.log(this.state);
+    // console.log("contruction");
+    // console.log(this.state);
 }
 
  componentDidMount() {
-    console.log("compDidmount");
+   // console.log("compDidmount");
   //API istekleri için kullanılır
   this.setState ({
       a : 20
@@ -25,17 +25,17 @@ class Test extends Component {
  }
  
 componentDidUpdate(prevProps, prevState) {
-    console.log("update");
+   // console.log("update");
 
 }
 
  shouldComponentUpdate(){
-     console.log('should comp up');
+   //  console.log('should comp up');
      return  true;
  }
 
     render() {
-        console.log("render");
+      //  console.log("render");
         return (
             <div>
                 
