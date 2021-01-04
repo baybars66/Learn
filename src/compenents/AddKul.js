@@ -104,7 +104,7 @@ verideg = (e) => {
                 </div>
                 <div className="card-body">
 
-                    <form onSubmit = {this.KulEkle.bind(this, dispatch)}>
+                    <form onSubmit = {this.KulEkle.bind(this, dispatc)}>
 
                     <div className="form-group">
                     <label htmlFor="name">Name</label>
